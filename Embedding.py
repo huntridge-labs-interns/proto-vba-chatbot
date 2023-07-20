@@ -604,7 +604,7 @@ def ask(
     if print_message:
         print(message)
     messages = [
-        {"role": "system", "content": "You answer questions about the 2022 Winter Olympics."},
+        {"role": "system", "content": "You answer questions about the VR&E Manual."},
         {"role": "user", "content": message},
     ]
     response = openai.ChatCompletion.create(
