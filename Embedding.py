@@ -14,6 +14,7 @@ max_tokens = 8000  # the maximum for text-embedding-ada-002 is 8191
 
 # Load your API key from an environment variable or secret management service
 openai.api_key = "YOUR_OPENAI_API_KEY"
+#openai.api_key = ""
 
 ### -----------------------------------------------------------------------------------
 ### -----------------------------------------------------------------------------------
@@ -131,7 +132,8 @@ df['embedding'] = df['embedding'].apply(eval).apply(np.array)
 strings, relatednesses = strings_ranked_by_relatedness("Government purchase card", df, top_n=5)
 for string, relatedness in zip(strings, relatednesses):
     print(f"{relatedness=:.3f}")
-    display(string)
+    print(string)
+    #display(string)
 
 #%% List of synonyms in the Manual
 # Can add words/definitions as needed
