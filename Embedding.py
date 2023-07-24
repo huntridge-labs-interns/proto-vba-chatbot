@@ -132,8 +132,8 @@ df['embedding'] = df['embedding'].apply(eval).apply(np.array)
 strings, relatednesses = strings_ranked_by_relatedness("Government purchase card", df, top_n=5)
 for string, relatedness in zip(strings, relatednesses):
     print(f"{relatedness=:.3f}")
-    print(string)
-    #display(string)
+    #print(string)
+    display(string)
 
 #%% List of synonyms in the Manual
 # Can add words/definitions as needed
@@ -616,6 +616,5 @@ def ask(
     return response_message
 
 #%% Test the ask capabilities of the model
-ask("What is a kicker")
+ask("micro-purchase limit")
 
-# %%
