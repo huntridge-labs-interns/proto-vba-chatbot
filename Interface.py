@@ -599,13 +599,15 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA])
 app.layout = html.Div(
     [
         html.Div(
-            html.Img(id='image', src="/assets/US-Dept-Veterans-Affairs-Logo.png", style={'width': '40%', 'height': 'auto'}),
-            style={'text-align': 'left', 'margin': '0', 'padding': '0'}  # Reset margins and paddings
+            html.Img(id='image', src="/assets/US-Dept-Veterans-Affairs-Logo-Original.png", style={'width': '40%', 'height': 'auto'}),
+            #style={'text-align': 'left', 'margin': '0', 'padding': '0'}  # Reset margins and paddings
+            className='mb-4',
+            style={'display': 'flex', 'align-items': 'left', 'flex-direction': 'column', 'background-color': '#07234E', 'color': 'white'}
         ),
         html.Div(
             [
                 html.H1("U.S. Department of Veterans Affairs ChatBot Assistant Demo", className='text-center'),
-                html.Img(id='image', src="/assets/VA_Seal.jpg", style={'max-width': '100%', 'height': 'auto'})  # Update the image file name and dimensions
+                html.Img(id='image', src="/assets/VA_Seal2.png", style={'max-width': '100%', 'height': 'auto'})  # Update the image file name and dimensions
             ],
             className='mb-4',
             style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', 'margin': 'auto'}
@@ -652,3 +654,5 @@ def update_output(n_clicks, text_input):
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+
+# %%
