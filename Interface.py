@@ -599,18 +599,18 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA])
 app.layout = html.Div(
     [
         html.Div(
-            html.Img(id='image', src="/assets/US-Dept-Veterans-Affairs-Logo-Original.png", style={'width': '40%', 'height': 'auto'}),
+            html.Img(id='image1', src="/assets/USDeptVeteransAffairs.png", style={'text-align': 'left', 'margin': '0', 'padding': '0', 'width': '40%', 'height': 'auto'}),
             #style={'text-align': 'left', 'margin': '0', 'padding': '0'}  # Reset margins and paddings
             className='mb-4',
-            style={'display': 'flex', 'align-items': 'left', 'flex-direction': 'column', 'background-color': '#07234E', 'color': 'white'}
+            style={'display': 'flex', 'align-items': 'left', 'flex-direction': 'column', 'background-color': '#051B44', 'color': 'white', 'margin': '0', 'padding': '0'}
         ),
         html.Div(
             [
-                html.H1("U.S. Department of Veterans Affairs ChatBot Assistant Demo", className='text-center'),
-                html.Img(id='image', src="/assets/VA_Seal2.png", style={'max-width': '100%', 'height': 'auto'})  # Update the image file name and dimensions
+                html.H1("Chatbot Assistant Demo for U.S. Department of Veterans Affairs Manual", className='text-center', style={'margin': '0 auto', 'padding': '0', 'max-width': '70%'}),
+                #html.Img(id='image', src="/assets/VA_Seal2.png", style={'max-width': '100%', 'height': 'auto'})  # Update the image file name and dimensions
             ],
             className='mb-4',
-            style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', 'margin': 'auto'}
+            style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', 'margin': '0 auto'}
         ),
         html.Div(
             dcc.Input(
@@ -629,10 +629,15 @@ app.layout = html.Div(
         ),
         dcc.Loading(
             children=[
-                html.Div(id='output-text')
+                html.Div(id='output-text', style={'max-width': '70%', 'margin': '0 auto'})  # Set the maximum width for the output text here)
             ],
             type="circle",
-        )
+        ),
+        html.Div(
+            html.Img(id='image2', src="/assets/VA_Seal2.png", style={'max-width': '100%', 'height': 'auto'}),
+            className='mb-4',
+            style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', 'margin': '0 auto'}
+        ),
     ],
     style={'width': '100%', 'height': '100vh'}  # Set the container to take full height of the viewport
 )
@@ -643,16 +648,12 @@ app.layout = html.Div(
     Input('submit-button', 'n_clicks'),
     State('input-text', 'value')
 )
-
 def update_output(n_clicks, text_input):
     if n_clicks > 0:
         # Get the response from ChatGPT (implement this part)
         response = get_response(text_input)
-        
         # Return the generated text as the output
         return response
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
-
-# %%
+    app.run_server(debug=False)       
