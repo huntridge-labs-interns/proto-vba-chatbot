@@ -7,7 +7,7 @@ Test and evaluate the viability of using OpenAI's fine-tuning API for Government
 | ------------- | ------------- |
 | DataCleaning.py  | **Input**: M28C_Scrap_No_Token_Limit.csv, GlossaryTerms.csv <br />Cleans/formats them for embedding. Outputs the ForEmbedding.csv. Can also create questions and answers about the data from context using OpenAI. This outputs the M28C_Q.csv and M28C_QA.csv. <br />**Output**: ForEmbedding.csv, M28C_Q.csv, M28C_QA.csv    |
 | Embedding.py  | **Input**: ForEmbedding.csv <br />Embeds the dataframe, chunks the dataframe into manageable sections, and answers a query using GPT and a dataframe of relevant texts and embeddings. <br />**Output**: Embedding1.csv, Embedding2.csv  |
-| Interface.py  | **Work in Progress** <br />Creates an interface to query chatGPT and ask it user questions.  |
+| Interface.py  | **Input**: Embedding1.csv, Embedding2.csv <br />Creates an interface to query chatGPT and ask it user questions.  |
 | Scrap.py  | Scraps the VR&E Manual. Includes options for scraping one chapter, scraping all chapters with no restrictions, scraping all chapters with token reduction, scraping all chapters with token reduction (splitting on paragraphs, and scraping the Glossary of Terms.  |
 | Embedding1.csv  | Generated and used in Embedding.py. Chunk of dataframe. Contains Title, Heading, Content, Tokens, Combined, embedding.  |
 | Embedding2.csv  | Generated and used in Embedding.py. Chunk of dataframe. Contains Title, Heading, Content, Tokens, Combined, embedding.  |
@@ -32,4 +32,7 @@ Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interfac
    - Enter your OpenAI API KEY
    - Can add words/definitions to synonym list
    - At end of the code, can change the question in ask() to ask the model a question
-6. Run Interface.py (**Work in Progress**)
+6. Run Interface.py
+   - Enter your OpenAI API Key
+   - Run all cells and an interface will open
+   - Type relevant question/phrase to get a response
