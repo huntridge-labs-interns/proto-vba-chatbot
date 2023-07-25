@@ -657,3 +657,5 @@ def update_output(n_clicks, text_input):
 
 if __name__ == '__main__':
     app.run_server(debug=False)       
+
+# %%
