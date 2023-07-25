@@ -593,40 +593,47 @@ def ask(
 
 ###################################### INTERFACE RUN ######################################
 #%% Instantiate the Dash app
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA])
 
 # Define the layout of the Dash app
-app.layout = dbc.Container([
-    html.Div(
-        [
-            #html.Img(src="Seal_of_the_U.S._Department_of_Veterans_Affairs.jpg", style={'width': '500px', 'height': '500px'}),  # Update the image file name and dimensions
-            html.H1("U.S. Department of Veterans Affairs ChatBot Assistant", className='text-center'),
-        ],
-        className='mb-4',
-        style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column',}
-    ),
-    html.Div(
-        dcc.Input(
-            id='input-text',
-            type='text',
-            placeholder='Type your message here',
-            style={'width': '100%', 'max-width': '500px', 'margin': '0 auto'}
+app.layout = html.Div(
+    [
+        html.Div(
+            html.Img(id='image', src="/assets/US-Dept-Veterans-Affairs-Logo.png", style={'width': '40%', 'height': 'auto'}),
+            style={'text-align': 'left', 'margin': '0', 'padding': '0'}  # Reset margins and paddings
         ),
-        className='mb-4',
-        style={'display': 'flex', 'justify-content': 'center'}
-    ),
-    html.Div(
-        html.Button('Submit', id='submit-button', n_clicks=0, className='d-block mx-auto'),
-        className='mb-4',
-        style={'display': 'flex', 'justify-content': 'center'}
-    ),
-    dcc.Loading(
-        children=[
-            html.Div(id='output-text')
-        ],
-        type="circle",
-    )
-])
+        html.Div(
+            [
+                html.H1("U.S. Department of Veterans Affairs ChatBot Assistant Demo", className='text-center'),
+                html.Img(id='image', src="/assets/VA_Seal.jpg", style={'max-width': '100%', 'height': 'auto'})  # Update the image file name and dimensions
+            ],
+            className='mb-4',
+            style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', 'margin': 'auto'}
+        ),
+        html.Div(
+            dcc.Input(
+                id='input-text',
+                type='text',
+                placeholder='Type your question here',
+                style={'width': '100%', 'max-width': '500px', 'margin': '0 auto'}
+            ),
+            className='mb-4',
+            style={'display': 'flex', 'justify-content': 'center'}
+        ),
+        html.Div(
+            html.Button('Ask', id='submit-button', n_clicks=0, className='d-block mx-auto'),
+            className='mb-4',
+            style={'display': 'flex', 'justify-content': 'center'}
+        ),
+        dcc.Loading(
+            children=[
+                html.Div(id='output-text')
+            ],
+            type="circle",
+        )
+    ],
+    style={'width': '100%', 'height': '100vh'}  # Set the container to take full height of the viewport
+)
 
 # Define the callback function
 @app.callback(
@@ -644,4 +651,4 @@ def update_output(n_clicks, text_input):
         return response
 
 if __name__ == '__main__':
-    app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False, mode='external')
+    app.run_server(debug=False)
