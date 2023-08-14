@@ -17,8 +17,8 @@ embedding_encoding = "cl100k_base"  # this is the encoding for text-embedding-ad
 max_tokens = 8000  # the maximum for text-embedding-ada-002 is 8191
 
 # Load your API key from an environment variable or secret management service
-openai.api_key = "YOUR_OPENAI_API_KEY"
-#openai.api_key = ""
+#openai.api_key = "YOUR_OPENAI_API_KEY"
+openai.api_key = ""
 
 ### -----------------------------------------------------------------------------------
 ### -----------------------------------------------------------------------------------
@@ -502,7 +502,15 @@ synonyms = {
     #"Azure RMS": "Azure Rights Management",
     "FAC-COR": "Federal Acquisition Certification for Contracting Officer's Representatives",
     "PIV": "Personal Identity Verification",
-    "QARB": "Quality Assurance Review Board"
+    "QARB": "Quality Assurance Review Board",
+    "Pre-Chapter 31": "CWINRS Pre-Chapter 31",
+    "pre-Chapter 31": "CWINRS pre-Chapter 31",
+    "Entitlement Determination Notification Date": "The Entitlement Determination Notification Date must match the date the claimant was notified in writing of the entitlement decision.  The Entitlement Determination Notification Date must also match the date the entitlement determination is documented on the VA Form 28-1902b",
+    "The Entitlement Determination Notification Date": "The Entitlement Determination Notification Date must match the date the claimant was notified in writing of the entitlement decision.  The Entitlement Determination Notification Date must also match the date the entitlement determination is documented on the VA Form 28-1902b",
+    "entitlement determination notification date": "The Entitlement Determination Notification Date must match the date the claimant was notified in writing of the entitlement decision.  The Entitlement Determination Notification Date must also match the date the entitlement determination is documented on the VA Form 28-1902b",
+    "the Entitlement Determination Notification Date": "The Entitlement Determination Notification Date must match the date the claimant was notified in writing of the entitlement decision.  The Entitlement Determination Notification Date must also match the date the entitlement determination is documented on the VA Form 28-1902b",
+    "QA Deferral Period": "The amount of time given to agencies to implement a new or changed policy or procedure",
+    "QA deferral period": "The amount of time given to agencies to implement a new or changed policy or procedure",
 }
 
 # Function to get the response from ChatGPT

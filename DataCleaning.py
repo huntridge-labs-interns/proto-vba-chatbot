@@ -15,9 +15,10 @@ openai.api_key = "YOUR_OPENAI_API_KEY"
 ### ---------------------------------------------------------------------------------------------------------
 
 ######################### CLEANING MANUAl AND GLOSSARY DATAFRAMES #########################
-#%% Read the CSV into the code
+#%% Read the CSVs into the code
 manual = pd.read_csv("M28C_Scrap_No_Token_Limit.csv")
 glossary = pd.read_csv("GlossaryTerms.csv")
+extra = pd.read_csv("ExtraData.csv")
 
 #%% Functions to clean the CSVs
 # Function that removes leading whitespace
@@ -83,10 +84,17 @@ manual['Content'] = manual['Content'].apply(standardize_chars)
 manual['Heading'] = manual['Heading'].apply(standardize_heading)
 # Step 3: Format Headings (spacing fixed)
 manual['Heading'] = manual['Heading'].apply(format_heading)
-manual.to_csv('Example.csv', index=False)
+#manual.to_csv('Example.csv', index=False)
+
+#%% Prepare the ExtraData CSV for embedding
+extra['Chapter Title'] = extra['Chapter Title'].apply(standardize_chars)
+extra['Heading'] = extra['Heading'].apply(standardize_chars)
+extra['Content'] = extra['Content'].apply(standardize_chars)
+extra = extra.drop('Question to Answer', axis=1)
+#extra.to_csv('Example.csv', index=False)
 
 #%% Combine Manual dataframe and Glossary dataframe into one dataframe
-frames = [manual, glossary]
+frames = [manual, glossary, extra]
 df = pd.concat(frames)
 # df.to_csv('Example.csv', index=False)
 

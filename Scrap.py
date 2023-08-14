@@ -88,7 +88,9 @@ import time
 #%% Set up the Selenium Chrome driver
 options = Options()
 # options.add_argument("--headless")  # Run the browser in headless mode
-driver = webdriver.Chrome((ChromeDriverManager().install()), options=options)
+# Specify the ChromeDriver version (compatible with your Chrome browser)
+chrome_driver_path = "chromedriver_win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 # Open the URL
 url = "https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000146267/M28CIA1-Veteran-Readiness-and-Employment-Manual%3FarticleViewContext=article_view_related_article"
@@ -196,7 +198,9 @@ df.to_csv("M28C_Scrap_No_Token_Limit.csv", index=False)
 # %% Set up the Selenium Chrome driver
 options = Options()
 # options.add_argument("--headless")  # Run the browser in headless mode
-driver = webdriver.Chrome((ChromeDriverManager().install()), options=options)
+# Specify the ChromeDriver version (compatible with your Chrome browser)
+chrome_driver_path = "chromedriver_win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 # Open the URL
 url = "https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000146267/M28CIA1-Veteran-Readiness-and-Employment-Manual%3FarticleViewContext=article_view_related_article"
@@ -312,7 +316,9 @@ df.to_csv('M28C_Scrap_Token_Reduction.csv', index=False)
 # %% Set up the Selenium Chrome driver
 options = Options()
 # options.add_argument("--headless")  # Run the browser in headless mode
-driver = webdriver.Chrome((ChromeDriverManager().install()), options=options)
+# Specify the ChromeDriver version (compatible with your Chrome browser)
+chrome_driver_path = "chromedriver_win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 # Open the URL
 url = "https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000146267/M28CIA1-Veteran-Readiness-and-Employment-Manual%3FarticleViewContext=article_view_related_article"
@@ -341,7 +347,7 @@ while True:
                     if re.match(r"\d+\.\d+|\d+\.\d+\.\d+ ", element.text.strip()) and element.text.strip() != "1.01 Chapter and Paragraph":
                         # Save the previous heading and content
                         if heading and content_text:
-                            if len(content_text) <= 3500:
+                            if len(content_text) <= 32000:
                                 headings.append(heading.text.strip())
                                 content.append(content_text.strip())
                                 tokens_count.append(len(content_text.strip().split()))
@@ -351,7 +357,7 @@ while True:
                                 paragraphs = re.split(r'(?<=\.\s)', content_text.strip())
                                 current_part = ""
                                 for paragraph in paragraphs:
-                                    if len(current_part + paragraph) >= 3500:
+                                    if len(current_part + paragraph) >= 32000:
                                         headings.append(heading.text.strip())
                                         content.append(current_part.strip())
                                         tokens_count.append(len(current_part.strip().split()))
@@ -386,7 +392,7 @@ while True:
                     paragraphs = re.split(r'(?<=\.\s)', content_text.strip())
                     current_part = ""
                     for paragraph in paragraphs:
-                        if len(current_part + paragraph) >= 3500:
+                        if len(current_part + paragraph) >= 32000:
                             headings.append(heading.text.strip())
                             content.append(current_part.strip())
                             tokens_count.append(len(current_part.strip().split()))
@@ -429,7 +435,9 @@ df.to_csv("M28C_Scrap_Token_Reduction_By_Paragraph.csv", index=False)
 # %% Set up the Selenium Chrome driver
 options = Options()
 # options.add_argument("--headless")  # Run the browser in headless mode
-driver = webdriver.Chrome((ChromeDriverManager().install()), options=options)
+# Specify the ChromeDriver version (compatible with your Chrome browser)
+chrome_driver_path = "chromedriver_win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 # Open the URL
 url = "https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000144454/M28C-Glossary-of-Terms#A1"

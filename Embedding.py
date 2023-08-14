@@ -129,7 +129,7 @@ df = pd.concat([df1,df2], ignore_index=True)
 df['embedding'] = df['embedding'].apply(eval).apply(np.array)
 
 #%% Testing search function
-strings, relatednesses = strings_ranked_by_relatedness("Government purchase card", df, top_n=5)
+strings, relatednesses = strings_ranked_by_relatedness("Entitlement Determination Notification Date", df, top_n=5)
 for string, relatedness in zip(strings, relatednesses):
     print(f"{relatedness=:.3f}")
     #print(string)
@@ -616,5 +616,7 @@ def ask(
     return response_message
 
 #%% Test the ask capabilities of the model
-ask("micro-purchase limit")
+ask("Entitlement Determination Notification Date")
 
+
+# %%
