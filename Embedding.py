@@ -104,6 +104,7 @@ df = pd.read_csv("ForEmbedding.csv")
 
 #%% Create a combined column that contains the title (heading) and content
 df["Combined"] = ("Title: " + df.Heading.str.strip() + "; Content: " + df.Content.str.strip())
+df['Combined'] = df['Combined'].astype(str)
 #df.head(2)
 #df.to_csv("Test.csv", index=False)
 
@@ -123,7 +124,8 @@ for i, chunk_start in enumerate(range(0, len(df), chunk_size)):
 #%% Read in Embedding1 and Embedding2 to ask questions (read in other Embedding# CSVs from previous step)
 df1 = pd.read_csv('Embedding1.csv')
 df2 = pd.read_csv('Embedding2.csv')
-df = pd.concat([df1,df2], ignore_index=True)
+df3 = pd.read_csv('Embedding3.csv')
+df = pd.concat([df1,df2,df3], ignore_index=True)
 #%% Converting string representations to NumPy Arrays
 # Ensures that the embedding column contains actual arrays of numerical values instead of string representations  
 df['embedding'] = df['embedding'].apply(eval).apply(np.array)

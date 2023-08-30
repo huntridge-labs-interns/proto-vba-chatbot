@@ -9,6 +9,7 @@ from unidecode import unidecode
 
 # Load your API key from an environment variable or secret management service
 openai.api_key = "YOUR_OPENAI_API_KEY"
+#openai.api_key = ""
 
 ### ---------------------------------------------------------------------------------------------------------
 ### ---------------------------------------------------------------------------------------------------------
@@ -89,6 +90,7 @@ manual['Heading'] = manual['Heading'].apply(format_heading)
 #%% Prepare the ExtraData CSV for embedding
 extra['Chapter Title'] = extra['Chapter Title'].apply(standardize_chars)
 extra['Heading'] = extra['Heading'].apply(standardize_chars)
+extra['Content'] = extra['Content'].astype(str)
 extra['Content'] = extra['Content'].apply(standardize_chars)
 extra = extra.drop('Question to Answer', axis=1)
 #extra.to_csv('Example.csv', index=False)
