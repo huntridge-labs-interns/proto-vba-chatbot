@@ -5,6 +5,9 @@ Test and evaluate the viability of using OpenAI's fine-tuning API for Government
 ## Directory Structure
 | Path  | Description |
 | ------------- | ------------- |
+| ExtraCSVs  | Contains CSVs that are not used in the current model. Includes M28C_Scrap_Q.csv (Generated in DataCleaning.py. Contains Title, Heading, Content, Tokens, Context, Questions), M28C_Scrap_QA.csv (Generated in DataCleaning.py. Contains Title, Heading, Content, Tokens, Context, Questions, Answers), M28C_Scrap_Token_Reduction.csv (Generated in Scrap.py and used in DataCleaning.py. Scraped dataframe of M28C Manual that limits tokens for each row. Contains Chapter Title, Heading, Content, Tokens)  |
+| assets  | Images used in the interface design  |
+| chromedriver_win32  | Chromedriver used to scrap the required web pages. Constantly being updated and depending on system being used will need to download specific version. Information can be found here: [link](https://chromedriver.chromium.org/home)  |
 | DataCleaning.py  | **Input**: M28C_Scrap_No_Token_Limit.csv, GlossaryTerms.csv <br />Cleans/formats them for embedding. Outputs the ForEmbedding.csv. Can also create questions and answers about the data from context using OpenAI. This outputs the M28C_Q.csv and M28C_QA.csv. <br />**Output**: ForEmbedding.csv, M28C_Q.csv, M28C_QA.csv    |
 | Embedding.py  | **Input**: ForEmbedding.csv <br />Embeds the dataframe, chunks the dataframe into manageable sections, and answers a query using GPT and a dataframe of relevant texts and embeddings. <br />**Output**: Embedding1.csv, Embedding2.csv, Embedding3.csv  |
 | Interface.py  | **Input**: Embedding1.csv, Embedding2.csv, Embedding3.csv <br />Creates an interface to query chatGPT and ask it user questions.  |
@@ -15,9 +18,6 @@ Test and evaluate the viability of using OpenAI's fine-tuning API for Government
 | ForEmbedding.csv  | Generated in DataCleaning.py and used in Embedding.py. Contains Title, Heading, Content, Tokens, Context   |
 | GlossaryTerms.csv  | Generated in Scrap.py and used in DataCleaning.py. Scraped dataframe of the Glossary of Terms that contains Chapter Title, Heading, Content, and Tokens.  |
 | M28C_Scrap_No_Token_Limit.csv  | Generated in Scrap.py and used in DataCleaning.py. Scraped dataframe of M28C Manual that has no token limit. Contains Chapter Title, Heading, Content, Tokens  |
-| M28C_Scrap_Q.csv  | Generated in DataCleaning.py. Contains Title, Heading, Content, Tokens, Context, Questions  |
-| M28C_Scrap_QA.csv  | Generated in DataCleaning.py. Contains Title, Heading, Content, Tokens, Context, Questions, Answers  |
-| M28C_Scrap_Token_Reduction.csv  | Generated in Scrap.py and used in DataCleaning.py. Scraped dataframe of M28C Manual that limits tokens for each row. Contains Chapter Title, Heading, Content, Tokens  |
 
 ## Steps to Replicate Project
 Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interface.py. Can either run each program or can use the provided CSVs 
