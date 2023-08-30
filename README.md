@@ -38,5 +38,6 @@ Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interfac
    - Can add words/definitions to synonym list
    - Run all cells and an interface will open
    - Type relevant question/phrase to get a response
-Screenshot of Interface
+   
+## Screenshot of Interface
 <kbd>![DemoScreenshot](https://github.com/huntridge-labs-interns/vre-poc/assets/135631259/4a388d48-d51f-4fb8-95fa-0d6079e83cf7)<kbd>
