@@ -41,3 +41,15 @@ Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interfac
    
 ## Screenshot of Interface
 <kbd>![DemoScreenshot](https://github.com/huntridge-labs-interns/vre-poc/assets/135631259/4a388d48-d51f-4fb8-95fa-0d6079e83cf7)<kbd>
+
+## Running Interface in Web Browser
+1. Have all the necessary libraries installed. You can install them using the following command in the terminal:
+   - pip install dash dash-bootstrap-components
+2. Save the Interface.py file with your openAI API Key
+3. Open the integrated terminal/terminal and navigate to the directoy where your 'Interface.py' file is located using the 'cd' command.
+   - For example: cd path/to/your/project
+4. Run the Interface by executing the following command in the terminal: python Interface.py
+5. After running the command, you should see output in the terminal indicating that the server is running. It will mention the URL where your app is hosted, which is usually 'http://127.0.0.1:8050/'
+6. Open a web browser and enter the URL mentioned in the terminal ('http://127.0.0.1:8050/' by default). This will open the Dash app interface in your web browser.
+This should allow interaction with the interface in your web browser. Any changes made to the code will automatically be reflected when you refresh the web page.
+Please note that while the development server is running, you'll see the terminal output and logs there. If you want to stop the server, you can do so by pressing Ctrl+C in the terminal.
