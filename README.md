@@ -24,16 +24,17 @@ Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interfac
 1. Download repository
 2. To install all required Python packages use: pip install -r requirements.txt  
 3. Run Scrap.py to generate M28C_Scrap_No_Token_Limit.csv and GlossaryTerms.csv
+   - Chromedriver will most likely need to be updated/downloaded for specific version of chrome and/or machine being used. Information can be found here: [link](https://chromedriver.chromium.org/home)
    - Recommend running the code in the sections labeled DATA SCRAPING ALL CHAPTERS and DATA SCRAP GLOSSARY OF TERMS
    - If issues with the URL(s), this [link](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000146267/M28CIA1-Veteran-Readiness-and-Employment-Manual%3FarticleViewContext=article_view_related_article) should be used for DATA SCRAPING ALL CHAPTERS and this [link](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000144454/M28C-Glossary-of-Terms%3FarticleViewContext=article_view_related_article) for DATA SCRAP GLOSSARY OF TERMS    
-4. Run DataCleaning.py
+5. Run DataCleaning.py
    - Enter your OpenAI API KEY
    - Option to run code to generate questions and answers based on context
-5. Run Embedding.py
+6. Run Embedding.py
    - Enter your OpenAI API KEY
    - Can add words/definitions to synonym list
    - At end of the code, can change the question in ask() to ask the model a question
-6. Run Interface.py
+7. Run Interface.py
    - Enter your OpenAI API Key
    - Run all cells and an interface will open
    - Type relevant question/phrase to get a response
