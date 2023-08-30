@@ -23,7 +23,7 @@ Progression of project goes Scrap.py > DataCleaning.py > Embedding.py > Interfac
 1. Download repository
 2. To install all required Python packages use: pip install -r requirements.txt  
 3. Run Scrap.py to generate M28C_Scrap_No_Token_Limit.csv and GlossaryTerms.csv
-   - Recommend running the code in the sections labeled DATA SCRAP ALL CHAPTERS and DATA SCRAP GLOSSARY OF TERMS
+   - Recommend running the code in the sections labeled DATA SCRAPING ALL CHAPTERS and DATA SCRAP GLOSSARY OF TERMS
    - If issues with the URL(s), this [link](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000146267/M28CIA1-Veteran-Readiness-and-Employment-Manual%3FarticleViewContext=article_view_related_article) should be used for DATA SCRAP ALL CHAPTERS and this [link](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000144454/M28C-Glossary-of-Terms%3FarticleViewContext=article_view_related_article) for DATA SCRAP GLOSSARY OF TERMS    
 4. Run DataCleaning.py
    - Enter your OpenAI API KEY
