@@ -17,8 +17,8 @@ embedding_encoding = "cl100k_base"  # this is the encoding for text-embedding-ad
 max_tokens = 8000  # the maximum for text-embedding-ada-002 is 8191
 
 # Load your API key from an environment variable or secret management service
-#openai.api_key = "YOUR_OPENAI_API_KEY"
-openai.api_key = ""
+openai.api_key = "YOUR_OPENAI_API_KEY"
+#openai.api_key = ""
 
 ### -----------------------------------------------------------------------------------
 ### -----------------------------------------------------------------------------------
