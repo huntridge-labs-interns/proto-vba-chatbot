@@ -6,6 +6,7 @@ import pandas as pd  # for storing text and embeddings data
 import tiktoken  # for counting tokens
 from scipy import spatial  # for calculating vector similarities for search
 import numpy as np
+import os
 
 EMBEDDING_MODEL = "text-embedding-ada-002" # works best for embedding
 GPT_MODEL = "gpt-3.5-turbo" # maybe can change, unsure
@@ -116,16 +117,30 @@ df["embedding"] = df.Combined.apply(lambda x: get_embedding(x, model=EMBEDDING_M
 #%% Chunk the data into multiple sections to properly store CSVs
 # CSVs saved as Embedding1, Embedding2, Embedding#
 chunk_size = len(df) // 2 # can change this number to include more CSVs
+# Create a directory to store CSVs
+output_folder = 'Embeddings'  # Name of the folder where CSVs will be saved
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
 for i, chunk_start in enumerate(range(0, len(df), chunk_size)):
     chunk_end = min(chunk_start + chunk_size, len(df))
     df_chunk = df.iloc[chunk_start:chunk_end]
-    df_chunk.to_csv(f'Embedding{i+1}.csv', index=False)
+    output_path = os.path.join(output_folder, f'Embedding{i+1}.csv')
+    df_chunk.to_csv(output_path, index=False)
 
-#%% Read in Embedding1 and Embedding2 to ask questions (read in other Embedding# CSVs from previous step)
-df1 = pd.read_csv('Embedding1.csv')
-df2 = pd.read_csv('Embedding2.csv')
-df3 = pd.read_csv('Embedding3.csv')
-df = pd.concat([df1,df2,df3], ignore_index=True)
+#%% Read in CSVs located in the Embeddings folder
+# Create an empty list to store DataFrames
+dfs = []
+# Specify the path to the Embeddings folder
+embeddings_folder = 'Embeddings'  # Change this to the path of your Embeddings folder
+# Iterate through CSV files in the folder
+for filename in os.listdir(embeddings_folder):
+    if filename.endswith('.csv'):
+        csv_path = os.path.join(embeddings_folder, filename)
+        df_chunk = pd.read_csv(csv_path)
+        dfs.append(df_chunk)
+# Concatenate all DataFrames
+df = pd.concat(dfs, ignore_index=True)
+
 #%% Converting string representations to NumPy Arrays
 # Ensures that the embedding column contains actual arrays of numerical values instead of string representations  
 df['embedding'] = df['embedding'].apply(eval).apply(np.array)

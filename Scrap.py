@@ -121,7 +121,7 @@ df = pd.DataFrame(data)
 df.drop_duplicates(inplace=True)
 print(df)
 #%%
-df.to_csv("M28C_Scrap_No_Token_Limit.csv", index=False)
+df.to_csv("M28C_Scrap.csv", index=False)
 
 ### -----------------------------------------------------------------------------------
 ### -----------------------------------------------------------------------------------

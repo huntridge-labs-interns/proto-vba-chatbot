@@ -17,7 +17,7 @@ openai.api_key = "YOUR_OPENAI_API_KEY"
 
 ######################### CLEANING MANUAl AND GLOSSARY DATAFRAMES #########################
 #%% Read the CSVs into the code
-manual = pd.read_csv("M28C_Scrap_No_Token_Limit.csv")
+manual = pd.read_csv("M28C_Scrap.csv")
 glossary = pd.read_csv("GlossaryTerms.csv")
 extra = pd.read_csv("ExtraData.csv")
 

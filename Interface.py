@@ -34,11 +34,19 @@ response = openai.Completion.create(
 # Check the response
 print(response)
 
-#%% Read in Embedding1 and Embedding2 to ask questions (read in other Embedding# CSVs from previous step)
-df1 = pd.read_csv('Embedding1.csv')
-df2 = pd.read_csv('Embedding2.csv')
-df3 = pd.read_csv('Embedding3.csv')
-df = pd.concat([df1,df2,df3], ignore_index=True)
+#%% Read in CSVs located in the Embeddings folder
+# Create an empty list to store DataFrames
+dfs = []
+# Specify the path to the Embeddings folder
+embeddings_folder = 'Embeddings'  # Change this to the path of your Embeddings folder
+# Iterate through CSV files in the folder
+for filename in os.listdir(embeddings_folder):
+    if filename.endswith('.csv'):
+        csv_path = os.path.join(embeddings_folder, filename)
+        df_chunk = pd.read_csv(csv_path)
+        dfs.append(df_chunk)
+# Concatenate all DataFrames
+df = pd.concat(dfs, ignore_index=True)
 
 #%% Converting string representations to NumPy Arrays
 # Ensures that the embedding column contains actual arrays of numerical values instead of string representations  
