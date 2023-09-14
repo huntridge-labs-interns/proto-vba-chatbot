@@ -22,7 +22,7 @@ import time
 options = Options()
 # options.add_argument("--headless")  # Run the browser in headless mode
 # Specify the ChromeDriver version (compatible with your Chrome browser)
-chrome_driver_path = "chromedriver_win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
+chrome_driver_path = "chromedriver-win32\chromedriver.exe"  # Replace with the path to your chromedriver executable
 driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 # Open the URL
